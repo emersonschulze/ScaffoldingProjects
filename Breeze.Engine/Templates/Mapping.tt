@@ -1,0 +1,48 @@
+﻿<#@ template language="C#" #>
+using System;
+using System.Linq;
+using NHibernate;
+using FluentNHibernate.Mapping;
+using Sigfaz.Infra.Data.NHibernate.Mapping;
+
+namespace <#= MetaData.Namespace #>.Mappings
+{
+	public class <#= MetaData.ClassName #>Mapping : ClassMap<<#= MetaData.ClassName #>>
+	{
+		public <#= MetaData.ClassName #>Mapping()
+		{
+			Table("<#= MetaData.TableName #>");
+			Id(x => x.Handle).Not.Nullable().GeneratedBy.Native(
+                builder => builder.AddParam("sequence", "SEQ_<#= MetaData.SequenceHash #>")
+            );
+
+<#
+			foreach (var property in MetaData.MapProperties)
+			{
+#>
+
+			Map(x => x.<#=property.Name#>, "<#= property.DataBaseColumnName #>");
+<#
+			if(property.IsReferenceType)
+			{
+				if(property.HasFk)
+				{
+#>
+			References(x => x.<#=property.ReferenceName#>, "<#= property.DataBaseColumnName #>")
+<#
+				}
+				else
+				{
+#>
+			References(x => x.<#=property.ReferenceName#>, "<#= property.DataBaseColumnName #>").ForeignKey("none")
+<#
+				}
+#>
+				.Not.Insert().Not.Update().Cascade.None();
+<#
+			}	
+	}
+#>
+	}
+	}
+}

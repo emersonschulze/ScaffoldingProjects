@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nova.CodeDOM", "Nova.CodeDOM\Nova.CodeDOM.csproj", "{E6AA9910-EDA4-4D64-8E8A-5D949EC90CCE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6A97BBCF-E2BF-4AC7-B40B-2B4612C974C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Breeze.Engine", "Breeze.Engine\Breeze.Engine.csproj", "{6158153C-C437-4976-8F39-C7DF3D18FB98}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C5F95FF6-87AD-44E6-A182-486E3254255A} = {C5F95FF6-87AD-44E6-A182-486E3254255A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Breeze.Engine.Tests", "Tests\Breeze.Engine.Tests\Breeze.Engine.Tests.csproj", "{5995CDA4-A975-472D-BA3A-49EFFBC62AA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Breeze.Ui", "Breeze.Ui\Breeze.Ui.csproj", "{515849E1-22F2-4341-8DAE-5003E446C699}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{387C83A8-356E-4400-94AF-44473FC4FAB5}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreezeExtension", "Breeze\BreezeExtension\BreezeExtension.csproj", "{D22F0C3E-8D60-408A-98AC-A582A7D8D533}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Breeze", "Breeze\Breeze\Breeze.csproj", "{C5F95FF6-87AD-44E6-A182-486E3254255A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E6AA9910-EDA4-4D64-8E8A-5D949EC90CCE} = {E6AA9910-EDA4-4D64-8E8A-5D949EC90CCE}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6AA9910-EDA4-4D64-8E8A-5D949EC90CCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6AA9910-EDA4-4D64-8E8A-5D949EC90CCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6AA9910-EDA4-4D64-8E8A-5D949EC90CCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6AA9910-EDA4-4D64-8E8A-5D949EC90CCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6158153C-C437-4976-8F39-C7DF3D18FB98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6158153C-C437-4976-8F39-C7DF3D18FB98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6158153C-C437-4976-8F39-C7DF3D18FB98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6158153C-C437-4976-8F39-C7DF3D18FB98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5995CDA4-A975-472D-BA3A-49EFFBC62AA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5995CDA4-A975-472D-BA3A-49EFFBC62AA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5995CDA4-A975-472D-BA3A-49EFFBC62AA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5995CDA4-A975-472D-BA3A-49EFFBC62AA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{515849E1-22F2-4341-8DAE-5003E446C699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{515849E1-22F2-4341-8DAE-5003E446C699}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{515849E1-22F2-4341-8DAE-5003E446C699}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{515849E1-22F2-4341-8DAE-5003E446C699}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D22F0C3E-8D60-408A-98AC-A582A7D8D533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D22F0C3E-8D60-408A-98AC-A582A7D8D533}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D22F0C3E-8D60-408A-98AC-A582A7D8D533}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D22F0C3E-8D60-408A-98AC-A582A7D8D533}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5F95FF6-87AD-44E6-A182-486E3254255A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5F95FF6-87AD-44E6-A182-486E3254255A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5F95FF6-87AD-44E6-A182-486E3254255A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5F95FF6-87AD-44E6-A182-486E3254255A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5995CDA4-A975-472D-BA3A-49EFFBC62AA2} = {6A97BBCF-E2BF-4AC7-B40B-2B4612C974C2}
+	EndGlobalSection
+EndGlobal

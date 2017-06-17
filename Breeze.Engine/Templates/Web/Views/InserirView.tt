@@ -1,0 +1,12 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="Breeze.Engine.Helpers"#>
+@model <#= MetaData.PortalBusinessNamespace #>.<# this.Write(this.GetAreaName()); #>.<#= MetaData.ClassName #>.ViewModels.<#= MetaData.ClassName #>ViewModel
+
+@using (Html.BasicForm((String)ViewBag.Title))
+{
+	@Html.ValidationSummary(false)
+	@Html.AntiForgeryToken()
+<# 
+this.PrintEditViewElements(MetaData.MapProperties);
+#>
+}

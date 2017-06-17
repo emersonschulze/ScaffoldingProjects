@@ -1,0 +1,16 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Breeze.Engine.Helpers"#>
+@model <#= MetaData.PortalBusinessNamespace #>.<# this.Write(this.GetAreaName()); #>.<#= MetaData.ClassName #>.ViewModels.<#= MetaData.ClassName #>ViewModel
+
+@using (Html.BasicForm((String)ViewBag.Title)) {
+	@Html.ValidationSummary(false)
+	@Html.AntiForgeryToken()
+	@Html.HiddenFor(m => m.Handle)
+<# 
+this.PrintEditViewElements(MetaData.MapProperties);
+#>
+}

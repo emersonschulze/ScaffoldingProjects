@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6158153C-C437-4976-8F39-C7DF3D18FB98}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Breeze.Engine</RootNamespace>
+    <AssemblyName>Breeze.Engine</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Crc32Utils">
+      <HintPath>..\..\Sigfaz.Infra\Sigfaz.Infra\bin\Debug\Crc32Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FactoryEngine.cs" />
+    <Compile Include="Helpers\FileHelper.cs" />
+    <Compile Include="Helpers\LookupVerifier.cs" />
+    <Compile Include="Helpers\TemplateExtensions.cs" />
+    <Compile Include="Helpers\TypeFactory.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="SourceType\Business\EntityAutoMapperSource.cs" />
+    <Compile Include="SourceType\Business\InterfaceRepositorioSource.cs" />
+    <Compile Include="SourceType\Business\PortalBusinessSourceBase.cs" />
+    <Compile Include="SourceType\Business\RepositorioConcretoSource.cs" />
+    <Compile Include="SourceType\ISource.cs" />
+    <Compile Include="SourceType\Model\MappingSource.cs" />
+    <Compile Include="MetaDataDefinition.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyMetadaDefinition.cs" />
+    <Compile Include="SourceType\Portal\ControllerSource.cs" />
+    <Compile Include="SourceType\WebPages\CreatePagesSource.cs" />
+    <Compile Include="SourceType\SourceBase.cs" />
+    <Compile Include="SourceType\Portal\ActionViewModelSource.cs" />
+    <Compile Include="SourceType\Portal\ViewModelSource.cs" />
+    <Compile Include="SourceType\Portal\ViewSource.cs" />
+    <Compile Include="SourceType\TypeFile.cs" />
+    <Compile Include="Templates\ITemplate.cs" />
+    <Compile Include="Templates\Mapping.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Mapping_Impl.cs" />
+    <Compile Include="Templates\Web\Business\EntityMapperMap.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityMapperMap.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Web\Business\InterfaceRepositorio.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InterfaceRepositorio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Web\Business\EntityMapperMap_Impl.cs" />
+    <Compile Include="Templates\Web\Business\InterfaceRepositorio_Impl.cs" />
+    <Compile Include="Templates\Web\Business\RepositorioConcreto.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RepositorioConcreto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Web\Business\RepositorioConcreto_Impl.cs" />
+    <Compile Include="Templates\Web\Controllers\Controller.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Web\Controllers\Controller_Impl.cs" />
+    <Compile Include="Templates\Web\Models\ActionEntityViewModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActionEntityViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Web\Models\EntityViewModelBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityViewModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Web\Models\ActionEntityViewModel_Impl.cs" />
+    <Compile Include="Templates\Web\Models\EntityViewModelBase_Impl.cs" />
+    <Compile Include="Templates\Web\Models\IndexViewModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IndexViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Web\Models\IndexViewModel_Impl.cs" />
+    <Compile Include="Templates\Web\Pages\CreatePages.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreatePages.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Web\Pages\CreatePagesImpl.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreatePagesImpl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Web\Pages\CreatePagesImpl_Impl.cs" />
+    <Compile Include="Templates\Web\Pages\CreatePages_Impl.cs" />
+    <Compile Include="Templates\Web\Views\DetalhesView.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DetalhesView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Web\Views\DetalhesView_Impl.cs" />
+    <Compile Include="Templates\Web\Views\EditarView.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditarView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Web\Views\EditarView_Impl.cs" />
+    <Compile Include="Templates\Web\Views\IndexView.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IndexView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Web\Views\IndexView_Impl.cs" />
+    <Compile Include="Templates\Web\Views\InserirView.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InserirView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Web\Views\InserirView_Impl.cs" />
+    <Compile Include="TypeBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Templates\Mapping.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Mapping.cs</LastGenOutput>
+    </None>
+    <None Include="Templates\Web\Business\EntityMapperMap.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EntityMapperMap.cs</LastGenOutput>
+    </None>
+    <None Include="Templates\Web\Business\InterfaceRepositorio.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>InterfaceRepositorio.cs</LastGenOutput>
+    </None>
+    <None Include="Templates\Web\Business\RepositorioConcreto.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RepositorioConcreto.cs</LastGenOutput>
+    </None>
+    <None Include="Templates\Web\Controllers\Controller.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Controller.cs</LastGenOutput>
+    </None>
+    <None Include="Templates\Web\Models\ActionEntityViewModel.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ActionEntityViewModel.cs</LastGenOutput>
+    </None>
+    <None Include="Templates\Web\Models\EntityViewModelBase.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EntityViewModelBase.cs</LastGenOutput>
+    </None>
+    <None Include="Templates\Web\Models\IndexViewModel.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IndexViewModel.cs</LastGenOutput>
+    </None>
+    <None Include="Templates\Web\Pages\CreatePages.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CreatePages.cs</LastGenOutput>
+    </None>
+    <None Include="Templates\Web\Pages\CreatePagesImpl.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CreatePagesImpl.cs</LastGenOutput>
+    </None>
+    <None Include="Templates\Web\Views\DetalhesView.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DetalhesView.cs</LastGenOutput>
+    </None>
+    <None Include="Templates\Web\Views\EditarView.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EditarView.cs</LastGenOutput>
+    </None>
+    <None Include="Templates\Web\Views\IndexView.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IndexView.cs</LastGenOutput>
+    </None>
+    <None Include="Templates\Web\Views\InserirView.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>InserirView.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Nova.CodeDOM\Nova.CodeDOM.csproj">
+      <Project>{E6AA9910-EDA4-4D64-8E8A-5D949EC90CCE}</Project>
+      <Name>Nova.CodeDOM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

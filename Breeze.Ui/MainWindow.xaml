@@ -1,0 +1,96 @@
+﻿<Controls:MetroWindow  x:Class="Breeze.Ui.MainWindow"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Breeze - Code Generator"
+        SizeToContent="WidthAndHeight"
+        BorderBrush="{DynamicResource AccentColorBrush}"
+        BorderThickness="1"
+        ShowIconOnTitleBar="True"
+        Icon="Tornado.ico"                       
+        ShowMaxRestoreButton="False"
+        WindowStartupLocation="CenterScreen" Width="724.329">
+    <Controls:MetroWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+                <!--<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Resources/Icons.xaml" />-->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Controls:MetroWindow.Resources>
+    <StackPanel Orientation="Vertical" >
+
+        <DataGrid ItemsSource="{Binding PropertiesMetadata}"
+                  Height="350"
+                  Margin="0,0,0,10"
+                  VerticalScrollBarVisibility="Auto"
+                  RenderOptions.ClearTypeHint="Enabled"
+                  TextOptions.TextFormattingMode="Display"
+                  CanUserAddRows="False"
+                  SelectionUnit="FullRow"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" 
+                                    SortDirection="Ascending"
+                                    Binding="{Binding Path=Name, Mode=OneWay}"/>
+                <DataGridTextColumn IsReadOnly="False" 
+                                    Header="Column Name" 
+                                    Binding="{Binding Path=DataBaseColumnName, Mode=TwoWay}"/>
+                <DataGridTemplateColumn Header="Constraint" CanUserSort="True" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Visibility="{Binding Path=Enable, Mode=TwoWay}" ToolTip="Indica se deve gerar constraint para a FK" Text="Constraint? "></TextBlock>
+                                <CheckBox Visibility="{Binding Path=Enable, Mode=TwoWay}" IsChecked="{Binding Path=HasFk, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DockPanel Background="{DynamicResource AccentColorBrush4}">
+            <Controls:ToggleSwitch x:Name="enabledMappingGen"
+        		IsChecked="{Binding ClassMetadata.GenMapping, Mode=TwoWay}"
+        		OnLabel="Mapping"
+        		OffLabel="Mapping"
+        		Margin="20, 5, 15, 0" />
+
+            <Controls:ToggleSwitch x:Name="enableViewGen"
+        		IsChecked="{Binding ClassMetadata.GenViews, Mode=TwoWay}"
+        		OnLabel="Views"
+        		OffLabel="Views"
+        		Margin="20, 5, 0, 0" />
+
+            <Controls:ToggleSwitch x:Name="enableViewmodelGen"
+        		IsChecked="{Binding ClassMetadata.GenViewModels, Mode=TwoWay}"
+        		OnLabel="Viewmodels"
+        		OffLabel="Viewmodels"
+        		Margin="20, 5, 0, 0" />
+            <Controls:ToggleSwitch x:Name="enablePagesGen_"
+            	IsChecked="{Binding ClassMetadata.GenPages, Mode=TwoWay}"
+            	OnLabel="Pages"
+            	OffLabel="Pages                                    "
+            	Margin="20, 5, 0, 0" Width="107" Content="Pages" />
+
+            <Button Click="Generate" HorizontalAlignment="Right" Margin="20,5,10,10">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="25"
+        				Height="30"
+        				Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+        						Visual="{DynamicResource appbar_futurama_fry}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="10,5,5,5" FontSize="14" TextAlignment="Center" Text="Gerar"/>
+                </StackPanel>
+
+            </Button>
+        </DockPanel>
+    </StackPanel>
+</Controls:MetroWindow >

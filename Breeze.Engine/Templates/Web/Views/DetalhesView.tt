@@ -1,0 +1,10 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="Breeze.Engine.Helpers"#>
+@model <#= MetaData.PortalBusinessNamespace #>.<# this.Write(this.GetAreaName()); #>.<#= MetaData.ClassName #>.ViewModels.<#= MetaData.ClassName #>ViewModel
+
+@using (Html.DetailsContent((string)ViewBag.Title))
+{
+<# 
+	this.PrintDetailsViewElements(MetaData.MapProperties);
+#>
+}
